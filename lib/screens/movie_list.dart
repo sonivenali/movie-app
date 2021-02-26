@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:movieapp/constants.dart';
 import 'package:movieapp/models/movie.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MoviesList extends StatefulWidget {
   @override
@@ -52,7 +54,18 @@ class _MovieCardState extends State<MovieCard> {
               )
             ),
           ),
-        )
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 16),
+          child: Text(widget.movie.title,style: Theme.of(context).textTheme.headline5,),
+        ),
+        Row(mainAxisAlignment: MainAxisAlignment.center,
+          children: [SvgPicture.asset("assets/icons/star_fill.svg",height: 20,),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("${widget.movie.rating}"),
+          )
+        ],)
       ],
     );
   }
