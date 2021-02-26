@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:movieapp/constants.dart';
 import 'package:movieapp/models/movie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movieapp/screens/Movie_Detail_Screen.dart';
 
 class MoviesList extends StatefulWidget {
   @override
@@ -41,32 +42,45 @@ class MovieCard extends StatefulWidget {
 }
 
 class _MovieCardState extends State<MovieCard> {
-
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(widget.movie.poster)
-              )
+    return GestureDetector(onTap:() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MovieDetails(widget.movie,)),
+      );
+    }
+    ,
+      child: Column(
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage(widget.movie.poster))),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 16),
-          child: Text(widget.movie.title,style: Theme.of(context).textTheme.headline5,),
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.center,
-          children: [SvgPicture.asset("assets/icons/star_fill.svg",height: 20,),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("${widget.movie.rating}"),
+            padding: const EdgeInsets.only(top: 16),
+            child: Text(
+              widget.movie.title,
+              style: Theme.of(context).textTheme.headline5,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                "assets/icons/star_fill.svg",
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("${widget.movie.rating}"),
+              )
+            ],
           )
-        ],)
-      ],
+        ],
+      ),
     );
   }
 }
