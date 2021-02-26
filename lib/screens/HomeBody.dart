@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movieapp/screens/movie_list.dart';
 
 class HomeBody extends StatefulWidget {
   @override
@@ -24,8 +25,9 @@ class _HomeBodyState extends State<HomeBody> {
             },
           ),
         ),
-        Expanded(flex: 1, child: MovieList()),
-        Expanded(flex: 13, child: Container())
+        Expanded(flex: 2, child: GenreList()),
+        Expanded(flex: 13, child: MoviesList()),
+        Expanded(flex: 2, child: Container())
       ],
     );
   }
@@ -67,12 +69,12 @@ class _HomeBodyState extends State<HomeBody> {
   }
 }
 
-class MovieList extends StatefulWidget {
+class GenreList extends StatefulWidget {
   @override
-  _MovieListState createState() => _MovieListState();
+  _GenreListState createState() => _GenreListState();
 }
 
-class _MovieListState extends State<MovieList> {
+class _GenreListState extends State<GenreList> {
   final movieType = [
     "Action",
     "Crime",
@@ -97,7 +99,7 @@ class _MovieListState extends State<MovieList> {
 
   Widget Type(String name) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.fromLTRB(10, 25, 10, 25),
       child: FlatButton(shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18.0),
           side: BorderSide(color: Colors.grey[350])
