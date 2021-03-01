@@ -27,7 +27,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage(widget.movie.backdrop))),
+                            image: AssetImage(widget.movie.image))),
                   ),
                   Positioned(
                     bottom: 0,
@@ -81,7 +81,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(3),
                                   child: Text(
-                                    "${widget.movie.metascoreRating}",
+                                    "${widget.movie.rating}",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w400),

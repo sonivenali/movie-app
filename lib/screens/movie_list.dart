@@ -56,13 +56,13 @@ class _MovieCardState extends State<MovieCard> {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage(widget.movie.poster))),
+                  image: DecorationImage(image: AssetImage(widget.movie.image))),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 16),
             child: Text(
-              widget.movie.title,
+              widget.movie.name,
               style: Theme.of(context).textTheme.headline5,
             ),
           ),
