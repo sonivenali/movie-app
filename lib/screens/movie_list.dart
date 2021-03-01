@@ -4,6 +4,7 @@ import 'package:movieapp/constants.dart';
 import 'package:movieapp/models/movie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movieapp/screens/movie_detail_screen.dart';
+import 'package:movieapp/services/services.dart';
 
 class MoviesList extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class MoviesList extends StatefulWidget {
 
 class _MoviesListState extends State<MoviesList> {
   final pageController = PageController();
+  final service = Services();
   int initialPage = 1;
 
   @override
@@ -21,13 +23,26 @@ class _MoviesListState extends State<MoviesList> {
   }
 
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
-      child: PageView.builder(
-          itemCount: movies.length,
-          itemBuilder: (context, index) => MovieCard(
-                movie: movies[index],
-              )),
+    return FutureBuilder<List<Movie>>(
+      future: service.getMovies(),
+      // ignore: missing_return
+      builder: (context, snapshot) {
+        if(snapshot.hasData){
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
+            child: PageView.builder(
+                itemCount: snapshot.data.length,
+                itemBuilder: (context, index) => MovieCard(
+                  movie: snapshot.data[index],
+                )),
+          );
+        }else if(snapshot.hasError){
+          return Center(child: Text("Something went wrong!"));
+        }else{
+         return Center(child: CircularProgressIndicator(),);
+        }
+
+      }
     );
   }
 }
@@ -56,7 +71,7 @@ class _MovieCardState extends State<MovieCard> {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage(widget.movie.image))),
+                  image: DecorationImage(image: NetworkImage(widget.movie.image))),
             ),
           ),
           Padding(

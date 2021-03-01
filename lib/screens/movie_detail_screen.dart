@@ -27,7 +27,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage(widget.movie.image))),
+                            image: NetworkImage(widget.movie.image))),
                   ),
                   Positioned(
                     bottom: 0,
