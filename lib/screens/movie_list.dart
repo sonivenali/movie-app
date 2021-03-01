@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:movieapp/constants.dart';
 import 'package:movieapp/models/movie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movieapp/screens/Movie_Detail_Screen.dart';
+import 'package:movieapp/screens/movie_detail_screen.dart';
 
 class MoviesList extends StatefulWidget {
   @override

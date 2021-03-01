@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movieapp/screens/Genres.dart';
+import 'package:movieapp/screens/genres.dart';
 import 'package:movieapp/screens/movie_list.dart';
 
 class HomeBody extends StatefulWidget {

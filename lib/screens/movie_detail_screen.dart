@@ -80,20 +80,27 @@ class _MovieDetailsState extends State<MovieDetails> {
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(3),
-                                  child: Text("${widget.movie.metascoreRating}",
-                                  style: TextStyle(color:  Colors.white ,fontWeight: FontWeight.w400),),
+                                  child: Text(
+                                    "${widget.movie.metascoreRating}",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
+                                  ),
                                 ),
                               ),
-                              Text("Metascore",style: TextStyle(fontSize: 15)),
-                              Text("62 critic reviews",style: TextStyle(fontSize: 12)),
-
+                              Text("Metascore", style: TextStyle(fontSize: 15)),
+                              Text("62 critic reviews",
+                                  style: TextStyle(fontSize: 12)),
                             ],
                           )
                         ],
                       ),
                     ),
                   ),
-                  SafeArea(child: BackButton(color: Colors.white,)),
+                  SafeArea(
+                      child: BackButton(
+                    color: Colors.white,
+                  )),
                 ],
               ),
             ),
