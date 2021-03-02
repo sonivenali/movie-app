@@ -24,26 +24,26 @@ class _MoviesListState extends State<MoviesList> {
 
   Widget build(BuildContext context) {
     return FutureBuilder<List<Movie>>(
-      future: service.getMovies(),
-      // ignore: missing_return
-      builder: (context, snapshot) {
-        if(snapshot.hasData){
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
-            child: PageView.builder(
-                itemCount: snapshot.data.length,
-                itemBuilder: (context, index) => MovieCard(
-                  movie: snapshot.data[index],
-                )),
-          );
-        }else if(snapshot.hasError){
-          return Center(child: Text("Something went wrong!"));
-        }else{
-         return Center(child: CircularProgressIndicator(),);
-        }
-
-      }
-    );
+        future: service.getMovies(),
+        // ignore: missing_return
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
+              child: PageView.builder(
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (context, index) => MovieCard(
+                        movie: snapshot.data[index],
+                      )),
+            );
+          } else if (snapshot.hasError) {
+            return Center(child: Text("Something went wrong!"));
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
   }
 }
 
@@ -59,19 +59,23 @@ class MovieCard extends StatefulWidget {
 class _MovieCardState extends State<MovieCard> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap:() {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => MovieDetails(widget.movie,)),
-      );
-    }
-    ,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MovieDetails(
+                    widget.movie,
+                  )),
+        );
+      },
       child: Column(
         children: [
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                  image: DecorationImage(image: NetworkImage(widget.movie.image))),
+                  image:
+                      DecorationImage(image: NetworkImage(widget.movie.image))),
             ),
           ),
           Padding(

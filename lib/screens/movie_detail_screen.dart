@@ -16,6 +16,7 @@ class _MovieDetailsState extends State<MovieDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Expanded(
@@ -106,13 +107,44 @@ class _MovieDetailsState extends State<MovieDetails> {
             ),
           ),
           Expanded(
-            flex: 3,
-            child: Container(
-              color: Colors.white,
+            flex: 1,
+            child: Row(
+              children: [
+                Expanded(
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: Text(
+                        widget.movie.name,
+                        style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24)
+                      ),
+                    ),
+                  ],
+                )),
+                Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: SizedBox(
+                    height: 50,
+                    width: 50,
+                    child: FlatButton(
+                      color: Colors.pink[300],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16)),
+                      onPressed: () {},
+                      child: Icon(
+                        Icons.add,
+                      size: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Container(
               color: Colors.white,
             ),
