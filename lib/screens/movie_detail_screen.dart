@@ -193,7 +193,8 @@ class _MovieDetailsState extends State<MovieDetails> {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 40, left: 4,bottom: 10),
+                        padding:
+                            const EdgeInsets.only(top: 40, left: 4, bottom: 10),
                         child: Text(
                           "Plot Summary",
                           style: TextStyle(
@@ -210,14 +211,16 @@ class _MovieDetailsState extends State<MovieDetails> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 40, left: 4,bottom: 15),
+                    padding:
+                        const EdgeInsets.only(top: 40, left: 4, bottom: 15),
                     child: Text(
                       "Cast & Crew",
                       style:
                           TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
                     ),
                   ),
-                  Row(mainAxisAlignment: MainAxisAlignment.start,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
