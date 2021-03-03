@@ -176,8 +176,17 @@ class _MovieDetailsState extends State<MovieDetails> {
           ),
           Expanded(
             flex: 4,
-            child: Container(
-              color: Colors.white,
+            child: Column(
+              children: [
+                FlatButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.grey[350])),
+                    onPressed: () {},
+                    child: Text(
+                      widget.movie.movieType,
+                    ))
+              ],
             ),
           )
         ],

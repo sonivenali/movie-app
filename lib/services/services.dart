@@ -7,7 +7,7 @@ import 'package:movieapp/models/movie.dart';
 class Services{
   Future<List<Movie>> getMovies() async {
     final response = await http.get(
-      'https://api.mocki.io/v1/27743de8',
+      'https://api.mocki.io/v1/8e8a008f',
     );
     final data = json.decode(response.body);
     List<Movie> items = [];
