@@ -109,21 +109,52 @@ class _MovieDetailsState extends State<MovieDetails> {
           Expanded(
             flex: 1,
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
-                    child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(24),
-                      child: Text(
-                        widget.movie.name,
-                        style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24)
+                      padding:
+                          const EdgeInsets.only(top: 24, left: 16, right: 0),
+                      child: Text(widget.movie.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24, top: 8),
+                      child: Row(
+                        children: [
+                          Text(
+                            widget.movie.year,
+                            style: TextStyle(color: kTextLightColor),
+                          ),
+                          SizedBox(
+                            width: kDefaultPadding,
+                          ),
+                          Text(
+                            widget.movie.adultRating,
+                            style: TextStyle(color: kTextLightColor),
+                          ),
+                          SizedBox(
+                            width: kDefaultPadding,
+                          ),
+                          Text(
+                            widget.movie.time,
+                            style: TextStyle(color: kTextLightColor),
+                          )
+                        ],
                       ),
                     ),
                   ],
                 )),
-                Padding(
-                  padding: const EdgeInsets.only(right: 16),
+                Container(
+                  padding: const EdgeInsets.only(
+                    right: 16,
+                  ),
                   child: SizedBox(
                     height: 50,
                     width: 50,
@@ -134,12 +165,12 @@ class _MovieDetailsState extends State<MovieDetails> {
                       onPressed: () {},
                       child: Icon(
                         Icons.add,
-                      size: 20,
+                        size: 20,
                         color: Colors.white,
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),

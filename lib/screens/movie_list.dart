@@ -82,7 +82,7 @@ class _MovieCardState extends State<MovieCard> {
             padding: const EdgeInsets.only(top: 16),
             child: Text(
               widget.movie.name,
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headline5,textAlign: TextAlign.center,
             ),
           ),
           Row(
