@@ -175,20 +175,43 @@ class _MovieDetailsState extends State<MovieDetails> {
             ),
           ),
           Expanded(
-            flex: 4,
-            child: Column(
-              children: [
-                FlatButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.grey[350])),
-                    onPressed: () {},
-                    child: Text(
-                      widget.movie.movieType,
-                    ))
-              ],
+            flex: 5,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  FlatButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(color: Colors.grey[350])),
+                      onPressed: () {},
+                      child: Text(
+                        widget.movie.movieType,style: TextStyle(fontSize: 13),
+                      )),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 32,left: 8),
+                        child: Text("Plot Summary",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
+                      ),
+                    ],
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 0,top: 16),
+                    child: Text(widget.movie.plotSummary,textAlign: TextAlign.left,),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 32,left: 8),
+                    child: Text("Cast & Crew",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
+                  ),
+
+                ],
+
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
