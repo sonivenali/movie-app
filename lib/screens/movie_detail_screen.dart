@@ -35,10 +35,10 @@ class _MovieDetailsState extends State<MovieDetails> {
                     left: 65,
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.9,
-                      height: 80,
+                      height: 70,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -178,7 +178,8 @@ class _MovieDetailsState extends State<MovieDetails> {
             flex: 5,
             child: Padding(
               padding: const EdgeInsets.only(left: 16),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   FlatButton(
                       shape: RoundedRectangleBorder(
@@ -186,29 +187,80 @@ class _MovieDetailsState extends State<MovieDetails> {
                           side: BorderSide(color: Colors.grey[350])),
                       onPressed: () {},
                       child: Text(
-                        widget.movie.movieType,style: TextStyle(fontSize: 13),
+                        widget.movie.movieType,
+                        style: TextStyle(fontSize: 13),
                       )),
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 32,left: 8),
-                        child: Text("Plot Summary",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
+                        padding: const EdgeInsets.only(top: 40, left: 4,bottom: 10),
+                        child: Text(
+                          "Plot Summary",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 20),
+                        ),
                       ),
                     ],
                   ),
-
                   Padding(
-                    padding: const EdgeInsets.only(left: 0,top: 16),
-                    child: Text(widget.movie.plotSummary,textAlign: TextAlign.left,),
+                    padding: const EdgeInsets.only(top: 14),
+                    child: Text(
+                      widget.movie.plotSummary,
+                      textAlign: TextAlign.left,
+                    ),
                   ),
-
                   Padding(
-                    padding: const EdgeInsets.only(top: 32,left: 8),
-                    child: Text("Cast & Crew",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
+                    padding: const EdgeInsets.only(top: 40, left: 4,bottom: 15),
+                    child: Text(
+                      "Cast & Crew",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                    ),
                   ),
-
+                  Row(mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundImage:
+                                  Image.network(widget.movie.crew1Image).image,
+                              radius: 28,
+                            ),
+                            Text(widget.movie.crew1)
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundImage:
+                                  Image.network(widget.movie.crew2Image).image,
+                              radius: 28,
+                            ),
+                            Text(widget.movie.crew2)
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundImage:
+                                  Image.network(widget.movie.crew3Image).image,
+                              radius: 28,
+                            ),
+                            Text(widget.movie.crew3)
+                          ],
+                        ),
+                      )
+                    ],
+                  )
                 ],
-
               ),
             ),
           ),
