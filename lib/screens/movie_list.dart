@@ -25,7 +25,6 @@ class _MoviesListState extends State<MoviesList> {
   Widget build(BuildContext context) {
     return FutureBuilder<List<Movie>>(
         future: service.getMovies(),
-        // ignore: missing_return
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Padding(
